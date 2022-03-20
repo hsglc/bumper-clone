@@ -14,7 +14,7 @@ const Header = () => {
   });
 
   const leftSideLinks = (
-    <div className={` bg-[#FF733C] `}>
+    <div className={` bg-[#FF733C] hidden lg:block `}>
       <ul
         className={`text-gray-600 text-lg tracking-wide flex flex-col lg:flex-row`}>
         <li className="navbar-leftside-elements">
@@ -44,7 +44,8 @@ const Header = () => {
   return (
     <div className="lg:bg-[#5A698C] lg:p-6">
       <header className="layout-container py-5 lg:py-1.5 bg-[#FF733C] flex justify-between items-center lg:rounded-r-full lg:rounded-l-full">
-        {isLgScreen ? leftSideLinks : <HeaderLogo />}
+        {leftSideLinks}
+        <HeaderLogo />
 
         {!isLgScreen && (
           <nav>
@@ -70,7 +71,7 @@ const Header = () => {
             </div>
           </nav>
         )}
-        {isLgScreen && <HeaderLogo />}
+
         {isLgScreen && (
           <div className="flex items-center gap-3">
             <TextWithIcon
