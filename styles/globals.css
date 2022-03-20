@@ -1,16 +1,45 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+/** @format */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .layout-container {
+    @apply py-3 px-4 lg:pl-9;
+  }
+  .flex-center {
+    @apply flex items-center;
+  }
+  .navbar-icon {
+    @apply cursor-pointer relative rounded-full border border-black w-10 h-10 flex flex-col items-center justify-center gap-1;
+  }
+  .navbar-icon-slices {
+    @apply w-4 h-0.5 bg-black transition-all duration-500;
+  }
+  .navbar-leftside-elements {
+    @apply text-white lg:text-black font-semibold lg:font-medium cursor-pointer py-2 hover:bg-black lg:hover:text-white lg:hover:bg-[#FF733C] transition-all;
+  }
+  .login-link {
+    @apply text-[#00B67A] hover:text-[#00B67A]/75 transition-all;
+  }
+  .dashboard-element {
+    @apply bg-white rounded-[40px] px-8 py-9;
+  }
+  .dashboard-element-items {
+    @apply flex items-center justify-between font-bold
+  }
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+@layer base {
+  html,
+  body {
+    font-family: Universal Sans, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    height: 100%;
 
-* {
-  box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+  }
 }
