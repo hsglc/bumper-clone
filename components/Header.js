@@ -14,7 +14,7 @@ const Header = () => {
   });
 
   const leftSideLinks = (
-    <div className={` bg-[#FF733C] hidden lg:block `}>
+    <div className={` bg-[#FF733C] `}>
       <ul
         className={`text-gray-600 text-lg tracking-wide flex flex-col lg:flex-row`}>
         <li className="navbar-leftside-elements">
@@ -40,11 +40,12 @@ const Header = () => {
       </ul>
     </div>
   );
+  console.log(isOpen);
 
   return (
     <div className="lg:bg-[#5A698C] lg:p-6">
       <header className="layout-container py-5 lg:py-1.5 bg-[#FF733C] flex justify-between items-center lg:rounded-r-full lg:rounded-l-full">
-        {leftSideLinks}
+        {isLgScreen && leftSideLinks}
         <HeaderLogo />
 
         {!isLgScreen && (
@@ -89,7 +90,7 @@ const Header = () => {
           </div>
         )}
       </header>
-      {isOpen && leftSideLinks}
+      {isOpen && !isLgScreen && leftSideLinks}
     </div>
   );
 };
