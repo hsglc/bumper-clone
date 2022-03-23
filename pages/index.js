@@ -2,82 +2,17 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useMediaQuery } from "react-responsive";
 
+import { StarIcon } from "../icons";
+import {
+  asSimpleAsSections,
+  benefitsSections,
+  payNowSections,
+} from "../constants/pages/index";
 import { Button } from "../components";
 import Layout from "../layouts/Layout";
-import { SecureIcon, CostIcon, MarketIcon, StarIcon } from "../icons";
-
-const payNowSections = [
-  {
-    id: 1,
-    icon: <SecureIcon />,
-    title: "Secure",
-    desc: "Prevent customers from revealing sensitive information over the phone, GDPR safe and tested.",
-  },
-  {
-    id: 2,
-    icon: <CostIcon />,
-    title: "Low cost",
-    desc: "Low transaction fee, no setup or mobile phone fees.",
-  },
-  {
-    id: 3,
-    icon: <MarketIcon />,
-    title: "Fast",
-    desc: "Set up and ready to go in minutes!",
-  },
-];
-
-const asSimpleAsSections = [
-  {
-    id: 1,
-    title: "Fix it",
-    desc: "Your customers bring their vehicle to you. You repair and service the car. Everything just like it works right now.",
-  },
-  {
-    id: 2,
-    title: "Split it",
-    desc: "When the customer gets their bill or quote, Bumper either intergrates into your existing online checkout or can be done on-site before you hand back the keys. All in just a few clicks.",
-  },
-  {
-    id: 3,
-    title: "Sorted",
-    desc: "You and your customer part ways happy. You’re paid in full direct from Bumper, the customer repays Bumper over their chosen payment plan.",
-  },
-];
-
-const benefitsSections = [
-  {
-    id: 1,
-    percent: "71",
-    content:
-      "of customers authorised more work because they used Bumper to split their bill.",
-  },
-  {
-    id: 2,
-    percent: "90",
-    content:
-      "of customers would return to the same garage because they offered Bumper",
-  },
-  {
-    id: 3,
-    percent: "+350",
-    content:
-      "increase in average invoice value of customers using Bumper to split their bill.",
-  },
-  {
-    id: 4,
-    percent: "89",
-    content:
-      "of customers felt less stressed because they used bumper to spread the cost.",
-  },
-];
 
 export default function Home() {
-  const isLgScreen = useMediaQuery({
-    query: "(min-width: 1024px)",
-  });
   return (
     <Layout>
       <section className="layout-container bg-[#5A698C] pt-11 lg:pb-10">
@@ -200,16 +135,15 @@ export default function Home() {
         </div>
       </section>
       <section className="relative bg-[#CDD2DC] h-[520px] lg:h-[700px]">
-       
-          <Image
-            alt="person"
-            src="/person.png"
-            width="100%"
-            height="40%"
-            layout="responsive"
-            objectFit="cover"
-          />
-        
+        <Image
+          alt="person"
+          src="/person.png"
+          width="100%"
+          height="40%"
+          layout="responsive"
+          objectFit="cover"
+        />
+
         <div className="absolute top-28 lg:top-1/3 w-11/12 lg:w-[390px] lg:absolute lg:right-8 rounded-br-2xl rounded-tr-2xl bg-white z-50 p-4">
           <p className="font-black">
             “Est sem nisl morbi praesent tempor augue in venenatis dolor massa
