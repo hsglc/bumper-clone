@@ -11,7 +11,9 @@ const Input = ({
   onChange = () => {},
   placeholder = "",
   icon = null,
-  isSuccessfullyValidated = null
+  isSuccessfullyValidated = null,
+  register = () => {},
+  required = false,
 }) => {
   const iconType =
     isSuccessfullyValidated === true ? (
@@ -34,6 +36,7 @@ const Input = ({
       className="w-full relative flex flex-col gap-2 text-[#1B1B1B]">
       {<TextWithIcon text={labelText} icon={icon} />}
       <input
+        {...register(id, { required })}
         placeholder={placeholder}
         value={value}
         onChange={onChange}
