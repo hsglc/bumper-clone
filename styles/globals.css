@@ -18,7 +18,7 @@
     @apply w-4 h-0.5 bg-black transition-all duration-500;
   }
   .navbar-leftside-elements {
-    @apply text-white lg:text-black font-semibold lg:font-medium cursor-pointer py-2 hover:bg-black lg:hover:text-white lg:hover:bg-[#FF733C] transition-all;
+    @apply text-white lg:text-black font-semibold lg:font-medium cursor-pointer py-2 hover:bg-black lg:hover:text-white lg:hover:bg-[#FF733C] transition-all lg:w-max;
   }
   .login-link {
     @apply text-[#00B67A] hover:text-[#00B67A]/75 transition-all;
