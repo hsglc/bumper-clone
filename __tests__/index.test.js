@@ -1,8 +1,8 @@
 /** @format */
 
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { HeaderLogo, RegisterForm } from "../components";
-import { act } from "react-dom/test-utils";
+import userEvent from "@testing-library/user-event";
 
 test("whether HeaderLogo component is present", () => {
   render(<HeaderLogo />);
@@ -10,25 +10,12 @@ test("whether HeaderLogo component is present", () => {
   expect(headerLogoEl).toBeInTheDocument();
 });
 
-describe("SignIn", () => {
-  describe("with valid inputs", () => {
-    it("calls the onSubmit function", async () => {
-      const { getByLabelText, getByRole } = render(<RegisterForm />);
+it("shows error message when the input has no value", async () => {
+  render(<RegisterForm />);
 
-      await act(async () => {
-        fireEvent.change(getByLabelText("Email Address *"), {
-          target: { value: "email@test.com" },
-        });
-        fireEvent.change(getByLabelText("Password *"), {
-          target: { value: "1234567" },
-        });
-      });
+  const submitFormButton = await screen.findByTestId("submitBtn");
+  userEvent.click(submitFormButton);
+  const errorMsg = await screen.findByText(/name is a required field/i);
 
-      await act(async () => {
-        fireEvent.click(getByRole("button"));
-      });
-
-      expect(mockOnSubmit).toHaveBeenCalled();
-    });
-  });
+  expect(errorMsg).toBeInTheDocument();
 });

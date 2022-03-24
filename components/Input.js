@@ -43,6 +43,7 @@ const Input = ({
         className={`w-full px-4 py-3 outline-none text-[#1B1B1B] placeholder:font-medium placeholder:text-[#737373]/30 ${classesOfInputTypes[type]}`}
         id={id}
         type={type}
+        data-testid={id}
       />
       <div className="absolute top-[60px] right-6">{iconType}</div>
     </label>

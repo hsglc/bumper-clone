@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 
-
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -19,8 +18,6 @@ import {
 } from "../icons";
 
 const RegisterForm = () => {
-  
-
   const {
     name,
     setName,
@@ -113,7 +110,7 @@ const RegisterForm = () => {
       <div className="flex flex-col gap-7 mt-4">
         {inputs.map(({ id, icon, labelText, placeholder, value, onChange }) => {
           return (
-            <>
+            <div key={id}>
               <Input
                 register={register}
                 required={true}
@@ -126,11 +123,11 @@ const RegisterForm = () => {
                 onChange={onChange}
               />
               {errors[id] && (
-                <p className="font-bold text-red-500 -mt-4">
+                <p data-testid={id} className="font-bold text-red-500 mt-1">
                   {errors[id].message}
                 </p>
               )}
-            </>
+            </div>
           );
         })}
         <div>
@@ -160,7 +157,7 @@ const RegisterForm = () => {
         </MultiSelectButton>
       </div>
 
-      <Button>Register</Button>
+      <Button id="submitBtn">Register</Button>
       <div className="text-center mt-4">
         <Link href="/">
           <a>
